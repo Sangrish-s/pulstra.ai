@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Paper Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Research Paper Chatbot</h1>
+        <div>
+            <label for="topic">Enter your research topic:</label>
+            <input type="text" id="topic" name="topic">
+        </div>
+        <div>
+            <label for="language">Enter your preferred language:</label>
+            <input type="text" id="language" name="language">
+        </div>
+        <button onclick="searchPapers()">Search Papers</button>
+        <div id="papers"></div>
+        <div>
+            <label for="userInput">You:</label>
+            <input type="text" id="userInput" name="userInput">
+        </div>
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="clearChat()">Clear Chat History</button>
+        <div class="chat-container" id="chatHistory"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
