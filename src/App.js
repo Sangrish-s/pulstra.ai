@@ -6,6 +6,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [language, setLanguage] = useState('');
   const [abstracts, setAbstracts] = useState([]);
+  const [error, setError] = useState(null);
 
   const searchPapers = async () => {
     if (!query || !language) {
@@ -20,8 +21,10 @@ function App() {
       });
 
       setAbstracts(response.data.abstracts);
+      setError(null);
     } catch (error) {
-      alert('Error fetching papers');
+      console.error('Error fetching papers:', error.response ? error.response.data : error.message);
+      setError('Error fetching papers. Please try again.');
     }
   };
 
@@ -50,6 +53,7 @@ function App() {
           />
         </div>
         <button onClick={searchPapers}>Search</button>
+        {error && <p className="error">{error}</p>}
         <div id="results">
           {abstracts.length > 0 ? (
             abstracts.map((abstract, index) => (
